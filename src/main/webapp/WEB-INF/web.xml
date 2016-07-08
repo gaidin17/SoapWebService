@@ -15,23 +15,6 @@ Inc.//DTD Web Application 2.3//EN"
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <servlet>
-        <servlet-name>restServiceServlet</servlet-name>
-        <servlet-class>com.</servlet-class>
-        <init-param>
-            <param-name>javax.ws.rs.Application</param-name>
-            <param-value>
-                com.ibm.jaxrs.sample.organization.ContactInfoApplication
-            </param-value>
-        </init-param>
-    </servlet>
-
-
-    <servlet-mapping>
-        <servlet-name>restServiceServlet</servlet-name>
-        <url-pattern>/REST</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>soapServiceServlet</servlet-name>
         <url-pattern>/SOAP</url-pattern>
