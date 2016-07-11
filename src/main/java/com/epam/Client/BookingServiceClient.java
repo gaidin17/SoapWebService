@@ -35,12 +35,18 @@ public class BookingServiceClient {
             System.out.println(ticket);
         }
         Person person = new Person("Vasily", "Alibbabaevich", "Alibabaev", new Date());
-        Integer id = null;
-        Integer id1 = null;
+        Integer bookingId = null;
         try {
-            id = bookingWebService.bookTicket(objectConverter.serialize(ticketList.get(0)), objectConverter.serialize(person));
+            bookingId = bookingWebService.bookTicket(objectConverter.serialize(ticketList.get(0)), objectConverter.serialize(person));
+            System.out.println(bookingId);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        Ticket ticket = bookingWebService.getTicketByBookingId(bookingId);
+        boolean isPaid = bookingWebService.payTicket(objectConverter.serialize(ticket));
+        System.out.println(isPaid);
+
+        boolean isReturned = bookingWebService.returnTicket(objectConverter.serialize(ticket));
+        System.out.println(isReturned);
     }
 }

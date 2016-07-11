@@ -32,13 +32,25 @@ public class BookingWebServiceImpl implements BookingWebService {
     }
 
     @Override
-    public void payTicket(int bookingId) {
-        bookingService.payTicket(bookingId);
+    public boolean payTicket(String ticketString) {
+        try {
+            Ticket ticket = (Ticket) objectConverter.deserialize(ticketString, Ticket.class);
+            bookingService.payTicket(ticket.getBookingId());
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     @Override
-    public void returnTicket(int bookingId) {
-        bookingService.returnTicket(bookingId);
+    public boolean returnTicket(String ticketString) {
+        try {
+            Ticket ticket = (Ticket) objectConverter.deserialize(ticketString, Ticket.class);
+            bookingService.returnTicket(ticket.getBookingId());
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     @Override

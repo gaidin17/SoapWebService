@@ -21,10 +21,10 @@ public interface BookingWebService {
     public int bookTicket(String ticketString, String personString);
 
     @WebMethod
-    public void payTicket(int bookingId);
+    public boolean payTicket(String ticketString);
 
     @WebMethod
-    public void returnTicket(int bookingId);
+    public boolean returnTicket(String ticketString);
 
     @WebMethod
     public String[] getAvailibletoBookingTickets();

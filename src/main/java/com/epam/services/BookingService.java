@@ -55,7 +55,7 @@ public class BookingService {
 
     public void payTicket(int bookingId) {
         Ticket ticket = getTicketByBookingId(bookingId);
-        if (ticket.getTicketState().equals(TicketState.BOOKED)) {
+        if (ticket != null && ticket.getTicketState().equals(TicketState.BOOKED)) {
             ticket.setTicketState(TicketState.PAID);
             logger.info("Ticket with bookingId = {} was successfully paid", bookingId);
         } else {
