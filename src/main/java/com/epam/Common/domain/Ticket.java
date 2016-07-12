@@ -2,11 +2,15 @@ package com.epam.Common.domain;
 
 import com.epam.Common.domain.enums.TicketState;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
  * Created by Evgeny_Akulenko on 7/6/2016.
  */
+@XmlRootElement
 public class Ticket {
     private static int count = 0;
     private int ticketId;
@@ -33,6 +37,81 @@ public class Ticket {
         this.price = price;
     }
 
+
+    public static int getCount() {
+        return count;
+    }
+
+
+    @XmlAttribute
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    @XmlElement
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    @XmlElement
+    public String getDepartureCity() {
+        return departureCity;
+    }
+
+    @XmlElement
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    @XmlElement
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    @XmlElement
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    @XmlElement
+    public Double getPrice() {
+        return price;
+    }
+
+    @XmlElement
+    public TicketState getTicketState() {
+        return ticketState;
+    }
+
+    @XmlElement
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setDepartureCity(String departureCity) {
+        this.departureCity = departureCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
+
     public void setPerson(Person person) {
         this.person = person;
     }
@@ -43,45 +122,5 @@ public class Ticket {
 
     public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public int getTicketId() {
-        return ticketId;
-    }
-
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public String getDepartureCity() {
-        return departureCity;
-    }
-
-    public String getDestinationCity() {
-        return destinationCity;
-    }
-
-    public Date getDepartureDate() {
-        return departureDate;
-    }
-
-    public Date getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public TicketState getTicketState() {
-        return ticketState;
-    }
-
-    public Person getPerson() {
-        return person;
     }
 }
