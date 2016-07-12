@@ -24,7 +24,7 @@ public class BookingServiceClient {
 
         Ticket[] tickets = bookingWebService.getAvailibletoBookingTickets();
         for (Ticket ticket : tickets) {
-            System.out.println(ticket);
+            System.out.println("ticket with id:"  + ticket.getTicketId());
         }
 
         Person person = new Person("Vasily", "Alibbabaevich", "Alibabaev", new Date());

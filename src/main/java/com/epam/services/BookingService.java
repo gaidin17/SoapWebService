@@ -20,19 +20,13 @@ public class BookingService {
     private TicketService ticketService = new TicketService();
     private List<Ticket> bookedTickets = new ArrayList<>();
 
-    public BookingService() {
-        Ticket ticket = new Ticket("Moscow", "Tula", new Date(), new Date(), 1100.0);
-        ticket.setBookingId(generateBookId());
-        bookedTickets.add(ticket);
-    }
-
     public List<Ticket> getAllTickets() {
         return ticketService.getTickets();
     }
 
     public int bookTicket(Ticket ticket, Person person) throws BookingException {
-        if (ticketService.getTicketById(ticket.getTicketId()) == null) {
-            logger.warn("Ticket with id = {} is booked allready or not exist", ticket.getTicketId());
+        if (ticket == null) {
+            logger.warn("Ticket is booked allready or not exist");
             throw new BookingException("This Ticket is booked allready or not exist");
         }
         ticket.setBookingId(generateBookId());
