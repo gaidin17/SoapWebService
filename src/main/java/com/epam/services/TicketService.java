@@ -4,6 +4,7 @@ import com.epam.Common.domain.Ticket;
 import com.epam.Common.exceptions.BookingException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class TicketService {
     }
 
     public List<Ticket> getTickets() {
-        return tickets;
+        return Collections.unmodifiableList(tickets);
     }
 
     public void addTicket(Ticket ticket) {
