@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ public class BookingService {
     private List<Ticket> bookedTickets = new ArrayList<>();
 
     public List<Ticket> getAllTickets() {
-        return ticketService.getTickets();
+        return Collections.unmodifiableList(ticketService.getTickets());
     }
 
     public int bookTicket(Ticket ticket, Person person) throws BookingException {
